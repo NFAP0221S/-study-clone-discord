@@ -1,17 +1,23 @@
 import express, { Express } from "express";
+// import authRoutes from "./routes/authRoutes";
 // import { Application, json, urlencoded, Response, Request, NextFunction } from 'express';
 import http from "http";
 import cors from "cors";
 import mongoose from "mongoose";
 
 require("dotenv").config();
-const app: Express = express();
+
+const authRoutes = require("./routes/authRoutes");
 
 const PORT = process.env.PORT || process.env.API_PORT;
 const DB: string | undefined = process.env.MONGODB_URI || "";
 
+const app: Express = express();
 app.use(express.json());
 app.use(cors());
+
+// register routes
+app.use("/api/auth", authRoutes);
 
 const server = http.createServer(app);
 
