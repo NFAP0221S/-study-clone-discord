@@ -1,9 +1,19 @@
 import express, { Router } from "express";
 import authControllers from "../controllers/auth/authControllers";
-import Joi from "joi";
+import * as Joi from "joi";
 
-const validator = require("express-joi-validation").createValidator({});
+import {
+  ContainerTypes,
+  // Use this as a replacement for express.Request
+  ValidatedRequest,
+  // Extend from this to define a valid schema type/interface
+  ValidatedRequestSchema,
+  // Creates a validator that generates middlewares
+  createValidator,
+} from "express-joi-validation";
+
 const router: Router = express.Router();
+const validator = createValidator();
 
 const registerSchema = Joi.object({
   username: Joi.string().min(3).max(12),
