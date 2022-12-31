@@ -5,7 +5,6 @@ import Joi from "joi";
 const validator = require("express-joi-validation").createValidator({});
 const router: Router = express.Router();
 
-// 유효성 검사
 const registerSchema = Joi.object({
   username: Joi.string().min(3).max(12),
   password: Joi.string().min(6).max(12),
