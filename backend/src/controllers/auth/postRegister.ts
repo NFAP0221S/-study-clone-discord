@@ -34,6 +34,8 @@ export default async (req: Request, res: Response) => {
       },
     });
   } catch (err) {
-    return res.status(500).send("### 서버(user) 에러 발생!!!");
+    return res
+      .status(500)
+      .send("### 서버(register) 에러 발생!!! 다시 시도해주세요.");
   }
 };
