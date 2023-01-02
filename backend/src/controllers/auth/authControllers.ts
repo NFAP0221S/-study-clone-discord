@@ -1,5 +1,5 @@
 import { postLogin } from "./postLogin";
-import { postRegister } from "./postRegister";
+import postRegister from "./postRegister";
 
 exports.controllers = {
   postLogin,
