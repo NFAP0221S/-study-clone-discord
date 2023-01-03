@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 const User = require("../../models/user");
 
 export default async (req: Request, res: Response) => {
@@ -24,7 +25,16 @@ export default async (req: Request, res: Response) => {
     });
 
     // create JWT token
-    const token = "JWT TOKEN";
+    const token = jwt.sign(
+      {
+        userId: user._id,
+        email,
+      },
+      process.env.TOKEN_KEY,
+      {
+        expiresIn: "24h",
+      }
+    );
 
     res.status(201).json({
       userDetails: {
