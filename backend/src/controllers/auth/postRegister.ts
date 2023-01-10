@@ -3,12 +3,9 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 const User = require("../../models/user");
 
-const TOKEN_KEY = process.env.TOKEN_KEY || "";
-
 export default async (req: Request, res: Response) => {
   try {
     const { username, email, password } = req.body;
-
     // user email이 존재하는지 check
     const userExists = await User.exists({ email: email.toLowerCase() });
 
@@ -27,6 +24,7 @@ export default async (req: Request, res: Response) => {
     });
 
     // create JWT token
+    const TOKEN_KEY = process.env.TOKEN_KEY || "";
     const token = jwt.sign(
       {
         userId: user._id,

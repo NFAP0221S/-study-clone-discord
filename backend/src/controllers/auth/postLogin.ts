@@ -12,7 +12,17 @@ export const postLogin = async (req: Request, res: Response) => {
 
     if (user && (await bcrypt.compare(password, user.password))) {
       // send new token
-      const token = "JWT_TOKEN";
+      const TOKEN_KEY = process.env.TOKEN_KEY || "";
+      const token = jwt.sign(
+        {
+          userId: user._id,
+          email,
+        },
+        TOKEN_KEY,
+        {
+          expiresIn: "24h",
+        }
+      );
 
       return res.status(200).json({
         userDetails: {
