@@ -3,6 +3,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 const User = require("../../models/user");
 
+const TOKEN_KEY = process.env.TOKEN_KEY || "";
+
 export default async (req: Request, res: Response) => {
   try {
     const { username, email, password } = req.body;
@@ -30,7 +32,7 @@ export default async (req: Request, res: Response) => {
         userId: user._id,
         email,
       },
-      process.env.TOKEN_KEY,
+      TOKEN_KEY,
       {
         expiresIn: "24h",
       }
