@@ -11,8 +11,9 @@ import {
   // Creates a validator that generates middlewares
   createValidator,
 } from "express-joi-validation";
+import { verifyToken as auth } from "../middleware/auth";
 
-const router: Router = express.Router();
+export const router: Router = express.Router();
 const validator = createValidator();
 
 const registerSchema = Joi.object({
@@ -37,4 +38,7 @@ router.post(
   authControllers.controllers.postLogin
 );
 
-module.exports = router;
+// test
+router.get("/test", auth, (req, res) => {
+  res.send("req passed");
+});
