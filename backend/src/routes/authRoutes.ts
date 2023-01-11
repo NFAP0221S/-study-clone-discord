@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import express, { Router, Request, Response } from "express";
 import authControllers from "../controllers/auth/authControllers";
 import * as Joi from "joi";
 
@@ -39,6 +39,6 @@ router.post(
 );
 
 // test
-router.get("/test", auth, (req, res) => {
+router.get("/test", auth, (req: Request, res: Response) => {
   res.send("req passed");
 });

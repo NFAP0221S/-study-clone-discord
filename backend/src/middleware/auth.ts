@@ -14,7 +14,7 @@ export const verifyToken = (
     return res.status(403).send("인증을 위한 토큰이 필요합니다.");
   }
   try {
-    token = token.replace(/^Bearer|s+/, "");
+    token = token.replace(/^Bearer\s+/, "");
     const TOKEN_KEY = process.env.TOKEN_KEY || "";
     const decoded = jwt.verify(token, TOKEN_KEY);
     req.user = decoded;
