@@ -6,5 +6,4 @@ exports.controllers = {
   postRegister,
 };
 
-// module.exports = exports;
 export default exports;

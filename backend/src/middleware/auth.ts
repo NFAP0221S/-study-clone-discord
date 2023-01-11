@@ -21,4 +21,6 @@ export const verifyToken = (
   } catch (err) {
     return res.status(401).send("유효하지 않은 토큰");
   }
+
+  return next();
 };

@@ -1,13 +1,12 @@
 import express, { Express } from "express";
-// import authRoutes from "./routes/authRoutes";
+import { router as authRoutes } from "./routes/authRoutes";
 // import { Application, json, urlencoded, Response, Request, NextFunction } from 'express';
 import http from "http";
 import cors from "cors";
+import dotenv from "dotenv";
 import mongoose from "mongoose";
 
-require("dotenv").config();
-
-const authRoutes = require("./routes/authRoutes");
+dotenv.config();
 
 const PORT = process.env.PORT || process.env.API_PORT;
 const DB: string | undefined = process.env.MONGODB_URI || "";
