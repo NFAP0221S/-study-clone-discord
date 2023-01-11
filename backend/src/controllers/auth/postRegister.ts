@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-const User = require("../../models/user");
+import { User } from "../../models/user";
 
 export default async (req: Request, res: Response) => {
   try {
