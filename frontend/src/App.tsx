@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
@@ -7,24 +12,21 @@ import Dashboard from "./pages";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         {/* Login */}
-        <Route path="/login">
-          <LoginPage />
-        </Route>
+        <Route path="/login" element={<LoginPage />} />
+
         {/* register */}
-        <Route path="/register">
-          <RegisterPage />
-        </Route>
+
+        <Route path="/register" element={<RegisterPage />} />
         {/* Dashboard */}
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
+
+        <Route path="/dashboard" element={<Dashboard />} />
         {/* Redirect */}
         <Route path="/" element={<Navigate replace to="/dashboard" />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
