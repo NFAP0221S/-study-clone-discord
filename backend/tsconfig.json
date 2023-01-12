@@ -19,6 +19,6 @@
     "allowSyntheticDefaultImports": true,
     "pretty": true,
     "resolveJsonModule": true,
-    "typeRoots": ["./src/customType", "./node_modules/@types"]
+    "typeRoots": ["./src/types", "./node_modules/@types"]
   }
 }
