@@ -18,11 +18,11 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
 
         {/* register */}
-
         <Route path="/register" element={<RegisterPage />} />
-        {/* Dashboard */}
 
+        {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />} />
+
         {/* Redirect */}
         <Route path="/" element={<Navigate replace to="/dashboard" />} />
       </Routes>
