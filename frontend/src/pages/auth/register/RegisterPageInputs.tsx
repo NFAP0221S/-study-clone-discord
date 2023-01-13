@@ -31,7 +31,7 @@ const RegisterPageInputs = ({
         value={username}
         setValue={setUsername}
         label="Username"
-        type="password"
+        type="text"
         placeholder={"Enter a username"}
       />
       <InputWithLabel
