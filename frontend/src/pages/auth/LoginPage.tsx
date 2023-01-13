@@ -4,10 +4,10 @@ import LoginPageHeader from "./LoginPageHeader";
 import LoginPageInputs from "./LoginPageInputs";
 import LoginPageFooter from "./LoginPageFooter";
 
-const LoginPage = () => {
-  const [mail, setMail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isFormValid, setIsFormValid] = useState(false);
+const LoginPage = (): JSX.Element => {
+  const [mail, setMail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
   const handleLogin = () => {
     console.log("login in");

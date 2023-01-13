@@ -1,14 +1,19 @@
-import React from "react";
+import { CSSProperties } from "react";
 import Button from "@mui/material/Button";
 
-const CustomPrimaryButton = (props: {
-  label: any;
-  additionalStyles: any;
-  disabled: any;
-  onClick: any;
-}) => {
-  const { label, additionalStyles, disabled, onClick } = props;
+interface CustomPrimaryButtonProps {
+  label: string;
+  additionalStyles: CSSProperties | undefined;
+  disabled: boolean;
+  onClick: () => void;
+}
 
+const CustomPrimaryButton = ({
+  label,
+  additionalStyles,
+  disabled,
+  onClick,
+}: CustomPrimaryButtonProps) => {
   return (
     <Button
       variant="contained"

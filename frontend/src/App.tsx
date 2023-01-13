@@ -10,7 +10,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import Dashboard from "./pages";
 
-function App() {
+const App = (): JSX.Element => {
   return (
     <Router>
       <Routes>
@@ -28,6 +28,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

@@ -1,7 +1,7 @@
 import React from "react";
 import AuthBox from "../../shared/components/AuthBox";
 
-const RegisterPage = () => {
+const RegisterPage = (): JSX.Element => {
   return <AuthBox>RegisterPage</AuthBox>;
 };
 

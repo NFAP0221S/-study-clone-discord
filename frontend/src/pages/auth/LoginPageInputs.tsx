@@ -1,13 +1,19 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import InputWithLabel from "../../shared/components/InputWithLabel";
 
-const LoginPageInputs = (props: {
-  mail: any;
-  setMail: any;
-  password: any;
-  setPassword: any;
-}) => {
-  const { mail, setMail, password, setPassword } = props;
+interface LoginPageInputsProps {
+  mail: string;
+  setMail: Dispatch<SetStateAction<string>>;
+  password: string;
+  setPassword: Dispatch<SetStateAction<string>>;
+}
+
+const LoginPageInputs = ({
+  mail,
+  setMail,
+  password,
+  setPassword,
+}: LoginPageInputsProps): JSX.Element => {
   return (
     <>
       <InputWithLabel

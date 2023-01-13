@@ -1,11 +1,11 @@
 import React from "react";
 import { Typography } from "@mui/material";
 
-const LoginPageHeader = () => {
+const LoginPageHeader = (): JSX.Element => {
   return (
     <>
       <Typography variant="h5" sx={{ color: "white" }}>
-        Welcom Back!
+        환영합니다!
       </Typography>
       <Typography sx={{ color: "#b9bbbe" }}>하이 하이 하이</Typography>
     </>

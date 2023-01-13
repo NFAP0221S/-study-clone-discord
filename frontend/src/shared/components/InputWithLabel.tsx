@@ -1,5 +1,13 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { styled } from "@mui/system";
+
+interface InputWithLabelProps {
+  value: string;
+  setValue: Dispatch<SetStateAction<string>>;
+  label: string;
+  type: string;
+  placeholder: string;
+}
 
 const Wrapper = styled("div")({
   display: "flex",
@@ -27,15 +35,13 @@ const Input = styled("input")({
   padding: "0 5px",
 });
 
-const InputWithLabel = (props: {
-  value: any;
-  setValue: any;
-  label: any;
-  type: any;
-  placeholder: any;
-}) => {
-  const { value, setValue, label, type, placeholder } = props;
-
+const InputWithLabel = ({
+  value,
+  setValue,
+  label,
+  type,
+  placeholder,
+}: InputWithLabelProps) => {
   const handleValueChange = (e: { target: { value: any } }) => {
     setValue(e.target.value);
   };
