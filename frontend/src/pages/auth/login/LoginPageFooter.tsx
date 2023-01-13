@@ -1,6 +1,6 @@
 import React from "react";
-import CustomPrimaryButton from "../../shared/components/CustomPrimaryButton";
-import RedirectInfo from "../../shared/components/RedirectInfo";
+import CustomPrimaryButton from "../../../shared/components/CustomPrimaryButton";
+import RedirectInfo from "../../../shared/components/RedirectInfo";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 import { Tooltip } from "@mui/material";
 

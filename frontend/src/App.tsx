@@ -6,8 +6,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./App.css";
-import LoginPage from "./pages/auth/LoginPage";
-import RegisterPage from "./pages/auth/RegisterPage";
+import LoginPage from "./pages/auth/login/LoginPage";
+import RegisterPage from "./pages/auth/register/RegisterPage";
 import Dashboard from "./pages";
 
 const App = (): JSX.Element => {

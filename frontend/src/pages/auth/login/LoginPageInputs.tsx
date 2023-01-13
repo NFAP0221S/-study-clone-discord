@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
-import InputWithLabel from "../../shared/components/InputWithLabel";
+import InputWithLabel from "../../../shared/components/InputWithLabel";
 
 interface LoginPageInputsProps {
   mail: string;

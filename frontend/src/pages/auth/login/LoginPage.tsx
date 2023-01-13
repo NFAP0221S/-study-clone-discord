@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import AuthBox from "../../shared/components/AuthBox";
-import LoginPageHeader from "./LoginPageHeader";
-import LoginPageInputs from "./LoginPageInputs";
-import LoginPageFooter from "./LoginPageFooter";
-import { validateLoginForm } from "../../shared/utils/validators";
+import AuthBox from "../../../shared/components/AuthBox";
+import LoginPageHeader from "../login/LoginPageHeader";
+import LoginPageInputs from "../login/LoginPageInputs";
+import LoginPageFooter from "../login/LoginPageFooter";
+import { validateLoginForm } from "../../../shared/utils/validators";
 
 const LoginPage = (): JSX.Element => {
   const [mail, setMail] = useState<string>("");
