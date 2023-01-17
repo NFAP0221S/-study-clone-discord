@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Typography } from "@mui/material";
 import { register } from "../../../store/actions/authThunks";
 import AuthBox from "../../../shared/components/AuthBox";
@@ -9,15 +8,12 @@ import RegisterPageFooter from "./RegisterPageFooter";
 import { validateRegisterForm } from "../../../shared/utils/validators";
 
 const RegisterPage = (): JSX.Element => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [mail, setMail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const [isFormValid, setIsFormValid] = useState(false);
-
-  const { registerDone } = useSelector((state: any) => state.user);
 
   const handleRegister = () => {
     console.log(mail);
