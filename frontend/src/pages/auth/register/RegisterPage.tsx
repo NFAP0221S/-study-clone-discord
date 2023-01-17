@@ -44,12 +44,6 @@ const RegisterPage = (): JSX.Element => {
     );
   }, [mail, username, password]);
 
-  useEffect(() => {
-    if (registerDone) {
-      navigate("/login");
-    }
-  }, [registerDone, navigate]);
-
   return (
     <AuthBox>
       <Typography variant="h5" sx={{ color: "white" }}>

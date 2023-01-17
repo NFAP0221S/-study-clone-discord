@@ -50,6 +50,7 @@ const userSlice = createSlice({
         state.registerLoading = false;
         state.registerDone = true;
         localStorage.setItem("dc-user", JSON.stringify(action.payload));
+        window.location.href = "http://localhost:3000/login";
       })
       .addCase(register.rejected, (state, action) => {
         state.registerLoading = false;
