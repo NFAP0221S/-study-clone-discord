@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-
-const User = require("../../models/user");
+import { User } from "../../models/user";
 
 export const postLogin = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email: email.toLowerCase() });
+    console.log("로그인 시 토큰 생성");
 
     if (user && (await bcrypt.compare(password, user.password))) {
       // send new token
@@ -23,7 +23,6 @@ export const postLogin = async (req: Request, res: Response) => {
           expiresIn: "24h",
         }
       );
-
       return res.status(200).json({
         userDetails: {
           email: user.email,
