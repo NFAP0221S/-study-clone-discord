@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { login, register } from "../actions/authThunks";
+import { useNavigate } from "react-router-dom";
 
 interface UserAuth {
   me: null;
@@ -27,12 +28,14 @@ const userSlice = createSlice({
   reducers: {},
   extraReducers: (builder) =>
     builder
+      // 로그인
       .addCase(login.pending, (state) => {
         state.loginLoading = true;
         state.loginDone = false;
         state.loginError = null;
       })
       .addCase(login.fulfilled, (state, action) => {
+        localStorage.setItem("dc-user", JSON.stringify(action.payload));
         state.loginLoading = false;
         state.me = action.payload;
         state.loginDone = true;
@@ -41,16 +44,17 @@ const userSlice = createSlice({
         state.loginLoading = false;
         state.loginError = action.payload;
       })
+      // 회원가입
       .addCase(register.pending, (state) => {
         state.registerLoading = true;
         state.registerDone = false;
         state.registerError = null;
       })
       .addCase(register.fulfilled, (state, action) => {
+        localStorage.setItem("dc-user", JSON.stringify(action.payload));
         state.registerLoading = false;
         state.registerDone = true;
-        localStorage.setItem("dc-user", JSON.stringify(action.payload));
-        window.location.href = "http://localhost:3000/login";
+        console.log(action.payload);
       })
       .addCase(register.rejected, (state, action) => {
         state.registerLoading = false;
