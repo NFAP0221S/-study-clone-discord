@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../../store/actions/authThunks";
+import { login } from "../../../store/actions/authAction";
 import AuthBox from "../../../shared/components/AuthBox";
 import LoginPageHeader from "../login/LoginPageHeader";
 import LoginPageInputs from "../login/LoginPageInputs";
 import LoginPageFooter from "../login/LoginPageFooter";
 import { validateLoginForm } from "../../../shared/utils/validators";
+import { openAlertMessage } from "../../../store/reducers/alert";
 
 const LoginPage = (): JSX.Element => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const { loginDone } = useSelector((state: any) => state.user);
+  const { loginDone, loginError } = useSelector((state: any) => state.user);
 
   const [mail, setMail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -25,6 +26,12 @@ const LoginPage = (): JSX.Element => {
   }, [navigate, loginDone]);
 
   useEffect(() => {
+    if (loginError) {
+      dispatch(openAlertMessage(loginError));
+    }
+  }, [dispatch, loginError]);
+
+  useEffect(() => {
     setIsFormValid(validateLoginForm({ mail, password }));
   }, [mail, password]);
 
@@ -32,11 +39,6 @@ const LoginPage = (): JSX.Element => {
     console.log(mail);
     console.log(password);
     console.log("login in");
-    const userDetails = {
-      email: mail,
-      password: password,
-    };
-    // dispatch(login(userDetails));
     dispatch(login({ email: mail, password: password }));
   };
 
