@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
-import { register } from "../../../store/actions/authThunks";
+import { register } from "../../../store/actions/authAction";
 import AuthBox from "../../../shared/components/AuthBox";
 import RegisterPageInputs from "./RegisterPageInputs";
 import RegisterPageFooter from "./RegisterPageFooter";
