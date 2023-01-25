@@ -2,6 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import Avatar from "../../../../shared/components/Avatar";
 import { Typography } from "@mui/material";
+import OnlineIndicator from "./OnlineIndicator";
 
 interface FriendsListItemProps {
   id: number;
@@ -40,6 +41,7 @@ const FriendsListItem = ({
       >
         {username}
       </Typography>
+      {isOnline && <OnlineIndicator />}
     </Button>
   );
 };
