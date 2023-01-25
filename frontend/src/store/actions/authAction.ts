@@ -23,6 +23,7 @@ instance.interceptors.request.use(
     return config;
   },
   (err) => {
+    // 에러일 시 거부
     return Promise.reject(err);
   }
 );

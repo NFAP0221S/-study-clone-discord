@@ -8,7 +8,7 @@ import {
 import "./App.css";
 import LoginPage from "./pages/auth/login/LoginPage";
 import RegisterPage from "./pages/auth/register/RegisterPage";
-import Dashboard from "./pages";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import AlertNontification from "./shared/components/AlertNontification";
 
 const App = (): JSX.Element => {
