@@ -6,6 +6,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import Typography from "@mui/material/Typography";
+import { DialogActions } from "@mui/material";
+import CustomPrimaryButton from "../../../shared/components/CustomPrimaryButton";
 
 interface AddFriendDialogProps {
   isDialogOpen: any;
@@ -54,6 +56,18 @@ AddFriendDialogProps): JSX.Element => {
             placeholder="Enter mail address"
           />
         </DialogContent>
+        <DialogActions>
+          <CustomPrimaryButton
+            onClick={handleSendInvitation}
+            disabled={!isFormValid}
+            label="보내기"
+            additionalStyles={{
+              marginLeft: "15px",
+              marginRight: "15px",
+              marginBottom: "10px",
+            }}
+          />
+        </DialogActions>
       </Dialog>
     </div>
   );
