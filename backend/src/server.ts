@@ -5,6 +5,7 @@ import http from "http";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+// import { registerSocketServer } from "./soketServer";
 
 dotenv.config();
 
@@ -18,7 +19,7 @@ app.use(cors());
 // register routes
 app.use("/api/auth", authRoutes);
 
-const server = http.createServer(app);
+export const server = http.createServer(app);
 
 // server.listen(PORT, () => {
 //   console.log(`Server listening on ${PORT}`);
