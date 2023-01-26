@@ -5,7 +5,6 @@ import http from "http";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import { Server } from "socket.io";
 import { registerSocketServer } from "./soketServer";
 
 dotenv.config();
