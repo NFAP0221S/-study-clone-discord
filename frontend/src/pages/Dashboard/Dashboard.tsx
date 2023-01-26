@@ -5,6 +5,7 @@ import FriendsSideBar from "./FriendsSideBar/FriendsSideBar";
 import Messenger from "./Messenger/Messenger";
 import AppBar from "./AppBar/AppBar";
 import { logout } from "../../shared/utils/auth";
+import { connectWithSocketServer } from "../../realtimeCommunication/socketConnection";
 // import setUserDetails from "../../store/reducers/user";
 // import { useDispatch } from "react-redux";
 
@@ -17,7 +18,7 @@ const Wrapper = styled("div")({
 const Dashboard = () => {
   // const dispatch = useDispatch();
 
-  // 토큰이 없다면 로그아웃 처리
+  // 토큰 유무에 따라 로그아웃 or 소켓서버 연결
   useEffect(() => {
     const userDetails = localStorage.getItem("dc-user");
 
@@ -26,6 +27,7 @@ const Dashboard = () => {
       logout();
     } else {
       console.log("dash console", JSON.parse(userDetails));
+      connectWithSocketServer();
     }
   }, []);
 
