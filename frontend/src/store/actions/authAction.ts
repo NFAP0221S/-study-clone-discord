@@ -10,7 +10,7 @@ const instance = axios.create({
 // 요청 인터셉터 -> then 또는  catch로 처리되기 전에 응답을 가로챌수 있음
 instance.interceptors.request.use(
   (config) => {
-    const userDetails = localStorage.getItem("user");
+    const userDetails = localStorage.getItem("dc-user");
 
     if (userDetails) {
       const token = JSON.parse(userDetails).token;

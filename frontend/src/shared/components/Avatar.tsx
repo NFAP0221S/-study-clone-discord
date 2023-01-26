@@ -24,7 +24,7 @@ const Avatar = ({ username, large }: AvatarProps): JSX.Element => {
   return (
     <AvaterPreview style={large ? { height: "80px", width: "80px" } : {}}>
       {username.substring(0, 2)}
-    </AvaterPreview>
+    </AvaterPreview> 
   );
 };
 
