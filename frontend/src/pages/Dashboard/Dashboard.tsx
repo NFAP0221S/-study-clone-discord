@@ -26,7 +26,7 @@ const Dashboard = () => {
       // window.location.pathname = "login";
       logout();
     } else {
-      console.log("dash console", JSON.parse(userDetails));
+      // console.log("dash console", JSON.parse(userDetails));
       connectWithSocketServer(JSON.parse(userDetails));
     }
   }, []);
