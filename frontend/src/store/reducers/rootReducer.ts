@@ -1,6 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import userSlice from "./user";
 import alertSlice from "./alert";
+import friendsSlice from "./friends";
 
 const rootReducer = (state: any, action: any) => {
   switch (action.type) {
@@ -12,6 +13,7 @@ const rootReducer = (state: any, action: any) => {
       const combinedReducers = combineReducers({
         user: userSlice,
         alert: alertSlice,
+        friends: friendsSlice,
       });
       return combinedReducers(state, action);
     }
