@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { validateMail } from "../../../shared/utils/validators";
 import InputWithLabel from "../../../shared/components/InputWithLabel";
 import Dialog from "@mui/material/Dialog";
@@ -8,6 +9,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import Typography from "@mui/material/Typography";
 import { DialogActions } from "@mui/material";
 import CustomPrimaryButton from "../../../shared/components/CustomPrimaryButton";
+import { sendFriendInvitation } from "../../../store/actions/friendsAction";
 
 interface AddFriendDialogProps {
   isDialogOpen: any;
@@ -20,11 +22,18 @@ const AddFriendDialog = ({
   closeDialogHandler,
 }: //   sendFriendInvitation = () => {},
 AddFriendDialogProps): JSX.Element => {
+  const dispatch = useDispatch();
   const [mail, setMail] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
   const handleSendInvitation = () => {
     // send friend req to server
+    console.log("친구초대");
+    dispatch(
+      sendFriendInvitation({
+        targetMailAddress: mail,
+      })
+    );
   };
 
   const handleCloseDialog = () => {

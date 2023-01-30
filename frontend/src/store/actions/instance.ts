@@ -17,6 +17,9 @@ instance.interceptors.request.use(
         Authorization: `Bearer ${token}`,
       };
     }
+    console.log("### 토큰 있음!!!!");
+    console.log("config", config);
+    console.log("userDetails", userDetails);
     // header에 토큰 추가
     return config;
   },
