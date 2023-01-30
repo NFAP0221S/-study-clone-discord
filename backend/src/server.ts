@@ -1,5 +1,6 @@
 import express, { Express } from "express";
 import { router as authRoutes } from "./routes/authRoutes";
+import { router as friendInvitationRoutes } from "./routes/friendInvitationRoutes";
 // import { Application, json, urlencoded, Response, Request, NextFunction } from 'express';
 import http from "http";
 import cors from "cors";
@@ -18,6 +19,7 @@ app.use(cors());
 
 // register routes
 app.use("/api/auth", authRoutes);
+app.use("/api/friend-invitation", friendInvitationRoutes);
 
 const server = http.createServer(app);
 registerSocketServer(server);

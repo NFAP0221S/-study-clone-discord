@@ -7,6 +7,9 @@ export const verifyToken = (
   res: Response,
   next: NextFunction
 ) => {
+  console.log("req.body.token", req.body.token);
+  console.log("req.query.token", req.body.token);
+  console.log("req.headers", req.headers["authorization"]);
   let token = req.body.token || req.query.token || req.headers["authorization"];
 
   // 토큰이 없으면 403에러
